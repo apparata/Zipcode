@@ -34,3 +34,14 @@ try archive.read { reader in
     print(string)
 }
 ```
+
+Writing text files to a zip file:
+
+```Swift
+let archove = ZipArchive(path: "/tmp/Zipcode.zip")
+try archive.write(type: .overwrite) { writer in
+    try writer.writeEntryNamed("textfile1.txt", "Text Content 1".data(using: .utf8))
+    try writer.writeEntryNamed("otherfiles/textfile2.txt", "Text Content 2".data(using: .utf8)) 
+}
+```
+
